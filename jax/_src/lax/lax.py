@@ -1528,7 +1528,6 @@ def composite(
     ...   return lax.composite(
     ...     lambda x: lax.sin(x) / lax.cos(x), name='my.tangent'
     ...   )(x)
-    ...
     >>> pi = jnp.pi
     >>> x = jnp.array([0.0, pi / 4, 3 * pi / 4, pi])
     >>> with jnp.printoptions(precision=3, suppress=True):
@@ -1537,8 +1536,8 @@ def composite(
     [ 0.  1. -1.  0.]
     [ 0.  1. -1.  0.]
 
-    The recommended way to create composites is via a decorator. Use `/` and `*`
-    in the function signature to be explicit about positional and keyword
+    The recommended way to create composites is via a decorator. Use ``/`` and
+    ``*`` in the function signature to be explicit about positional and keyword
     arguments respectively:
     >>> @partial(lax.composite, name="my.softmax")
     ... def my_softmax_composite(x, /, *, axis):
